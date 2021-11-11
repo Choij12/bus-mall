@@ -1,0 +1,10 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    background-color: bisque;
+}
+
+#main-section{
+    display:grid;
+    grid-template-columns: 5px 5px 5px ;
+}
