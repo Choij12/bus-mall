@@ -8,23 +8,34 @@
 </head>
 <body>
     <header>
+        <h1>Select on a image</h1>
     </header>
     <main>
-        <h2>Click on your favorites </h2>
-        <section id="images">
-            <img id="firstImage" src="" alt="" title=""  height="200" width="200" style="float:left"/>
-            <img id="secondImage" src="" alt="" title=""  height="200" width="200" />
-            <img id="thirdImage" src="" alt="" title="" height="200" width="200"/>
+        <section id="all-products">
+          <p id="rounds"></p>
+          <div id="left-side"> 
+            <img id="left-side-img" src="" alt="">
+          </div>
+          <div id="center">
+              <img id="center-img" src="" alt="">
+          </div>
+          <div id="right-side">
+            <img id="right-side-img" src="" alt="">
+          </div>
         </section>
+        <div id ="image-group"></div>
+        <section>
+          <p id="finalReport"></p>
+          <ul id="report">
+          </ul>
+        </section>
+        <section id="canvas">
+          <canvas id="chart" width="500" height="500"></canvas>
+        </section>
+  </main>
 
-        <div id = "divResult"></div>
-        <button  id = "Results" type="click">view result </button>
-        <div>
-            <canvas id="resultsChart"></canvas>
-
-    </main>
-    
-    <script src="js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    <script src="js/app.js"></script>
+    
 </body>
 </html>
