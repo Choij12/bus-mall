@@ -1,10 +1,10 @@
 'use strict';
 
-function generateRandom(min, max) {
+function generateRandom(min, max) { // generate random
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-let productList = [
+let productList = [ // list of images
   'bag.jpg',
   'banana.jpg',
   'bathroom.jpg',
@@ -26,7 +26,7 @@ let productList = [
   'wine-glass.jpg'
 ];
 
-let products = [];
+let products = []; // set variables
 let leftSideImage = document.querySelector('#left-side-img');
 let centerImage = document.querySelector('#center-img');
 let rightSideImage = document.querySelector('#right-side-img');
@@ -37,7 +37,7 @@ let rounds = document.getElementById('rounds');
 let numberRounds = 0;
 let imagesPerRound = [];
 
-function Product(url) {
+function Product(url) { // defining an image/product
   this.imageUrl = `img/${url}`;
   this.imageName = url.split('.')[0];
   products.push(this);
@@ -45,7 +45,7 @@ function Product(url) {
   this.numberViews = 0;
 }
 
-function randomImage() {
+function randomImage() { 
   leftImageRandom = products[generateRandom(0, products.length - 1)];
   centerImageRandom = products[generateRandom(0, products.length - 1)];
   rightImageRandom = products[generateRandom(0, products.length - 1)];
@@ -116,7 +116,7 @@ function clicks(e) {
       );
   }
 
-  function showResults(products) {
+  function showResults(products) { // display results 
     let results = JSON.stringify(products);
     localStorage.setItem('voteResults', results);
     let voteResults = localStorage.getItem('voteResults');
@@ -146,7 +146,7 @@ function clicks(e) {
   }
 }
 
-function storeMemory(){
+function storeMemory(){ // storage
     let stringItem = JSON.stringify(Product);
       localStorage.setItem('items', stringItem);
   }
@@ -162,6 +162,7 @@ function storeMemory(){
 
 function renderChart(productsNames, productsClicks, productsViews) {
 
+    // render chart/ horizontal bar graph
   let ctx = document.getElementById('chart').getContext('2d');
 
   new Chart(ctx, {
@@ -169,13 +170,13 @@ function renderChart(productsNames, productsClicks, productsViews) {
     data: {
       labels: productsNames,
       datasets: [{
-        label: '# of Votes',
+        label: 'Number of Clicks',
         data: productsClicks,
         backgroundColor: 'rgba(138, 43, 226, 0.2)',
         borderColor: 'rgba(138, 43, 226, 1)',
         borderWidth: 1
       }, {
-        label: '# of Views',
+        label: 'Number of Views',
         data: productsViews,
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
